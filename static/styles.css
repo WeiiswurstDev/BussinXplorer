@@ -1,0 +1,16 @@
+text-muted {
+  color: lightgray;
+}
+
+card {
+  direction: column;
+}
+
+p {
+  font-size: 14pt;
+}
+
+only-in-browsers {
+  font-size: 1pt;
+  color: #242424;
+}

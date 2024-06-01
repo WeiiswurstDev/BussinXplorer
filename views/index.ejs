@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>BussinXplorer</title>
+
+    <meta name="description" content="A web page showing a graph of BussinX" />
+
+    <link href="styles.css" />
+  </head>
+
+  <body>
+    <h1>BussinXplorer</h1>
+    <p class="text-muted">
+      See which other pages are popular by how many pages link to them! Explore
+      their connections!
+    </p><p>
+      Depending on how fast the network grows, this page might take a long time to load. Still working on it ...
+      Also, for now, I only analyze sites pointing to github.com for security reasons.
+    </p><p class="only-in-browsers">
+      This page is meant to be viewed in Napture using the BussinX protocol.
+      Viewing it in regular web browsers is unsupported and might cause issues.
+    </p>
+    <h2>Ranked Pages</h2>
+
+    <% for(let page of pages) { %>
+    <div id="<%= page.url %>" class="card">
+      <h3><%= page.title %></h3>
+
+      <p>
+      URL: buss://<%= page.url %>
+
+      IP: <%= page.ip %> <% if(!page.analyzed) { %> (not analyzed) <% } %>
+
+      Backlinks: <%= page.backlinks %>
+      </p>
+
+      <% if (page.forwardlinks.length > 0) { %>
+      <p>Links to:</p>
+      <p>
+        <% for (let forwardlink of page.forwardlinks) {%> -
+        <a href="buss://<%= forwardlink %>"><%= forwardlink %></a>
+        <% } %> <% } %>
+      </p>
+    </div>
+    <% } %> <%- include("disclaimer.ejs") %>
+  </body>
+</html>
