@@ -22,6 +22,10 @@ server.get("//index.html", (req, res) => {
   res.redirect("/index.html")
 })
 
+server.get("/healthcheck", (req, res) => {
+  res.send("Healthy!");
+})
+
 server.get("/index.html", async (req, res) => {
   let time = Date.now();
   let context = {
