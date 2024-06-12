@@ -91,6 +91,8 @@ async function fetchContent(url) {
 }
 
 async function analyzeLinks() {
+  backlinks = {}
+  forwardlinks = {}
   let time = Date.now();
   for (let page of DNS) {
     if (page.url === "explore.it") continue; // Don't count the links from this site!
